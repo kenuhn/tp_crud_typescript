@@ -41,14 +41,10 @@ export const postFilm = async (req: Request, res: Response) => {
 export const updateFilm = async (req: Request, res: Response) => {
   try {
     const updateData = req.body;
-    const filmId = req.params.filmId;
+    const { id } = req.params;
 
-    await filmModel.updateOne(
-      { _id: filmId },
-      { $set: updateData },
-      { new: true }
-    );
-    res.status(200).json({ message: "mise à jour avec succés" });
+    await filmModel.updateOne({ _id: id }, { $set: updateData });
+    res.status(200).json({ message: "film mise à jour avec succés" });
   } catch (error) {
     console.error(error);
     res.status(400).json(error);
@@ -56,9 +52,9 @@ export const updateFilm = async (req: Request, res: Response) => {
 };
 export const deleteFilm = async (req: Request, res: Response) => {
   try {
-    const filmId = req.params.filmId;
+    const { id } = req.params;
 
-    await filmModel.deleteOne({ _id: filmId });
+    await filmModel.deleteOne({ _id: id });
     res.status(200).json({ message: "suppression avec succés" });
   } catch (error) {
     console.error(error);

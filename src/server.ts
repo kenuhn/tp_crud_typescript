@@ -3,6 +3,8 @@ import express, { Express } from "express";
 import mongoose from "mongoose";
 
 import filmRouter from "./routes/film";
+import realisateurRouter from "./routes/realisateur";
+import seanceRouter from "./routes/seance";
 const mongo = mongoose;
 mongo.connect(`mongodb+srv://kenuhn:test@crudtp.wceh81t.mongodb.net/`);
 
@@ -28,8 +30,8 @@ app.use(express.json());
 /* app.use("/api/livres", livreRoutes); */
 
 app.use("/api/v1/film", filmRouter);
-/* app.use("/api/v1/realisateur", realisateurRouter); */
-
+app.use("/api/v1/realisateur", realisateurRouter);
+app.use("/api/v1/seance", seanceRouter);
 app.listen(PORT, () => {
   console.log(`Server running on port  ${PORT}`);
 });

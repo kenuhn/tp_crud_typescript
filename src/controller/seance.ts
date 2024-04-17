@@ -41,10 +41,10 @@ export const postSession = async (req: Request, res: Response) => {
 export const updateSession = async (req: Request, res: Response) => {
   try {
     const updateData = req.body;
-    const sessionId = req.params.sessionId;
+    const { id } = req.params;
 
     await sessionModel.updateOne(
-      { _id: sessionId },
+      { _id: id },
       { $set: updateData },
       { new: true }
     );
@@ -56,9 +56,9 @@ export const updateSession = async (req: Request, res: Response) => {
 };
 export const deleteSession = async (req: Request, res: Response) => {
   try {
-    const sessionId = req.params.sessionId;
+    const { id } = req.params;
 
-    await sessionModel.deleteOne({ _id: sessionId });
+    await sessionModel.deleteOne({ _id: id });
     res.status(200).json({ message: "suppression avec succés" });
   } catch (error) {
     console.error(error);

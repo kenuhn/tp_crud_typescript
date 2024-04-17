@@ -41,11 +41,11 @@ export const postDirector = async (req: Request, res: Response) => {
 export const updateDirector = async (req: Request, res: Response) => {
   try {
     const updateData = req.body;
-    const directorId = req.params.directorId;
+    const { id } = req.params;
 
     await directorModel.updateOne(
-      { _id: directorId },
-      { $set: updateData },
+      { _id: id },
+      { $Set: updateData },
       { new: true }
     );
     res.status(200).json({ message: "mise à jour avec succés" });
@@ -56,9 +56,9 @@ export const updateDirector = async (req: Request, res: Response) => {
 };
 export const deleteDirector = async (req: Request, res: Response) => {
   try {
-    const directorId = req.params.directorId;
+    const { id } = req.params;
 
-    await directorModel.deleteOne({ _id: directorId });
+    await directorModel.deleteOne({ _id: id });
     res.status(200).json({ message: "suppression avec succés" });
   } catch (error) {
     console.error(error);

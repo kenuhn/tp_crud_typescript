@@ -13,6 +13,6 @@ export const directorSchema = new mongoose.Schema<IDirector>({
 });
 
 export const directorModel = mongoose.model<IDirector>(
-  "directeur",
+  "realisateur",
   directorSchema
 );
