@@ -14,13 +14,12 @@ export const getFilm = async (req: Request, res: Response) => {
 
 export const getByIdFilm = async (req: Request, res: Response) => {
   try {
-    const filmId = req.params.filmId;
-
-    const film = await filmModel.findOne({ $Set: { _id: filmId } });
+    const { id } = req.params;
+    console.log(id);
+    const film = await filmModel.findOne({ _id: id });
 
     return res.status(200).json(film);
   } catch (error) {
-    console.error(error);
     return res.status(400).json(error);
   }
 };

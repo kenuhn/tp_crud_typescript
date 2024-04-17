@@ -12,7 +12,7 @@ export const directorSchema = new mongoose.Schema<IDirector>({
   biography: { type: String },
 });
 
-export const directeurModel = mongoose.model<IDirector>(
+export const directorModel = mongoose.model<IDirector>(
   "directeur",
   directorSchema
 );
