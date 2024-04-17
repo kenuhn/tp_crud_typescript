@@ -28,6 +28,7 @@ app.use(express.json());
 /* app.use("/api/livres", livreRoutes); */
 
 app.use("/api/v1/film", filmRouter);
+/* app.use("/api/v1/realisateur", realisateurRouter); */
 
 app.listen(PORT, () => {
   console.log(`Server running on port  ${PORT}`);
