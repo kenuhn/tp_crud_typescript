@@ -43,11 +43,7 @@ export const updateSession = async (req: Request, res: Response) => {
     const updateData = req.body;
     const { id } = req.params;
 
-    await sessionModel.updateOne(
-      { _id: id },
-      { $set: updateData },
-      { new: true }
-    );
+    await sessionModel.updateOne({ _id: id }, { $set: updateData });
     res.status(200).json({ message: "mise à jour avec succés" });
   } catch (error) {
     console.error(error);

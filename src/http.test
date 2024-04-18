@@ -1,0 +1,159 @@
+### Get all films
+GET http://localhost:3000/films
+Content-Type: application/json
+
+###
+
+### Get film by ID
+GET http://localhost:3000/films/1
+Content-Type: application/json
+
+###
+
+### Post new film
+POST http://localhost:3000/films
+Content-Type: application/json
+
+{
+  "title": "Inception",
+  "releaseYear": 2010,
+  "genre": "Action",
+  "directors": [
+    {
+      "nom": "Christopher",
+      "prenom": "Nolan"
+    }
+  ]
+}
+
+###
+
+### Update film
+PATCH http://localhost:3000/films/1
+Content-Type: application/json
+
+{
+  "title": "Inception Updated",
+  "releaseYear": 2010,
+  "genre": "Sci-Fi",
+  "directors": [
+    {
+      "nom": "Christopher",
+      "prenom": "Nolan"
+    }
+  ]
+}
+
+###
+
+### Delete film
+DELETE http://localhost:3000/films/1
+Content-Type: application/json
+
+###
+
+
+
+### Get all directors
+GET http://localhost:3000/directors
+Content-Type: application/json
+
+###
+
+### Get director by ID
+GET http://localhost:3000/directors/5f3fc1d2bc8b9d21d085dabc
+Content-Type: application/json
+
+###
+
+### Post new director to a film
+POST http://localhost:3000/films/5f3fc1d2bc8b9d21d085dabe
+Content-Type: application/json
+
+{
+  "nom": "Quentin",
+  "prenom": "Tarantino",
+  "age": 56
+}
+
+###
+
+### Update director in a film
+PATCH http://localhost:3000/films/5f3fc1d2bc8b9d21d085dabe
+Content-Type: application/json
+
+{
+    "nom": "Quentin",
+    "prenom": "Tarantino Updated",
+    "age": 57
+  }
+
+
+###
+
+### Delete director from a film
+DELETE http://localhost:3000/films/5f3fc1d2bc8b9d21d085dabe
+Content-Type: application/json
+
+{
+  "name": "Quentin Tarantino"
+}
+
+###
+
+
+
+
+
+
+### Get all sessions
+GET http://localhost:3000/sessions
+Content-Type: application/json
+
+###
+
+### Get session by ID
+GET http://localhost:3000/sessions/1
+Content-Type: application/json
+
+###
+
+### Post new session
+POST http://localhost:3000/sessions
+Content-Type: application/json
+
+{  
+  "film": {
+      "title": "Inception Updated",
+      "releaseYear": 2010,
+      "genre": "Sci-Fi",
+      "directors": [
+        {
+          "nom": "Christopher",
+          "prenom": "Nolan"
+        }
+      ]
+    },
+  "date": "2023-10-05T14:48:00.000Z",
+  "room": "Room A",
+  "seatsAvailable": 50
+}
+
+###
+
+### Update session
+PATCH http://localhost:3000/sessions/1
+Content-Type: application/json
+
+{
+  "room": "Room B",
+  "seatsAvailable": 45
+}
+
+###
+
+### Delete session
+DELETE http://localhost:3000/sessions/1
+Content-Type: application/json
+
+###

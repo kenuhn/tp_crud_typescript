@@ -43,11 +43,7 @@ export const updateDirector = async (req: Request, res: Response) => {
     const updateData = req.body;
     const { id } = req.params;
 
-    await directorModel.updateOne(
-      { _id: id },
-      { $Set: updateData },
-      { new: true }
-    );
+    await directorModel.updateOne({ _id: id }, { $set: updateData });
     res.status(200).json({ message: "mise à jour avec succés" });
   } catch (error) {
     console.error(error);
